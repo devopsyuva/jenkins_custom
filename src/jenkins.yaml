@@ -1,0 +1,24 @@
+jenkins:
+  authorizationStrategy:
+    roleBased:
+      roles:
+        global:
+          - name: "admin"
+            description: "Jenkins administrators"
+            permissions:
+              - "Overall/Administer"
+            assignments:
+              - "sudheer"
+          - name: "readonly"
+            description: "Read-only users"
+            permissions:
+              - "Overall/Read"
+              - "Job/Read"
+            assignments:
+              - "authenticated"
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+        - id: "sudheer"
+          password: "#jbcrypt:$2a$04$d2bTSIKBmkfqHtoyYtgKvO1ynFS0zZg9zOCqR9/Mdok56MV48/B9q"
